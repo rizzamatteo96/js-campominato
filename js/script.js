@@ -14,8 +14,10 @@ var bombeMin = 1;
 var bombeMax = 100;
 var numeroBombe = 16;
 while (bombe.length < numeroBombe){
+    // genera un numero random
     var numGen = rndNumber(bombeMin,bombeMax);
     if(!bombe.includes(numGen)){
+        //controllo che il numero generato non sia già presente e lo inserisco nell'array di riferimento
         bombe.push(numGen);
     }
 }
@@ -29,27 +31,31 @@ var endGame = false;
 while(saveUserNum.length < bombeMax - numeroBombe && !endGame){
     var numUser = parseInt(prompt('Inserisci un numero tra 1 e 100'));
     if (!bombe.includes(numUser) && !saveUserNum.includes(numUser) && !isNaN(numUser) && checkRange(bombeMin,bombeMax,numUser)){
+        //il numero è accettato dal sistema quindi lo salvo nell'array
         saveUserNum.push(numUser);
     }
     else if(isNaN(numUser)){
+        //il dato inserito dall'utente non è un numero
         alert('Il dato inserito non è un numero!!!');
     }
     else if(saveUserNum.includes(numUser)){
+        //il numero inserito dall'utente era già stato scritto in precedenza
         alert('Il numero "' + numUser + '" è già stato scritto in precedenza');
     }
     else if(!checkRange(bombeMin,bombeMax,numUser)){
+        //il numero inserito dall'utente non è compreso tra i numeri minimi e massimi
         alert('Il numero ' + numUser + ' è fuori dai limiti imposti. Devi usare un numero tra ' + bombeMin + ' e ' + bombeMax)
     }
     else {
+        //l'utente ha "preso una bomba" e quindi ha perso
         alert('Hai perso');
         endGame = true;
     }
 }
-
 console.log(saveUserNum);
 
 // 3. Comunicare quanti numeri sono stati scritti dall'utente prima di perdere
-console.log('l\'utente è riuscito ad inserire ' + saveUserNum.length + ' numeri. La percentuale di vincita è pari a ' + winPercentage(bombeMax - numeroBombe,saveUserNum.length) + '%');
+console.log('l\'utente è riuscito ad inserire ' + saveUserNum.length + ' numeri. La percentuale di vincita è pari a ' + numPercentage(bombeMax - numeroBombe,saveUserNum.length) + '%');
 
 
 
@@ -57,13 +63,16 @@ console.log('l\'utente è riuscito ad inserire ' + saveUserNum.length + ' numeri
 
 //! -----------SEZIONE PER LE FUNZIONI-----------
 function rndNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
+    // funzione che genera un numero random compreso tra min e max inclusi
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function checkRange(min,max,val){
+    // funzione che verifica che val sia compreso tra min e max
     return val >= min && val <= max;
 }
 
-function winPercentage(max, val){
-    return max / 100 * val;
+function numPercentage(max, val){
+    // funzione che restituisce la percentuale di val considerando max come 100%
+    return (max / 100 * val).toFixed(2);
 }
