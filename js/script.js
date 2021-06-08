@@ -8,10 +8,26 @@
 //TODO BONUS: (da fare solo se funziona tutto il resto) all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali: con difficoltà 0 => tra 1 e 100 con difficoltà 1 => tra 1 e 80 con difficoltà 2 => tra 1 e 50
 
 
+//BONUS Impostare livello di difficoltà del gioco
+var userLvl = parseInt(prompt('Inserisci la difficoltà: 0 / 1 / 2'));
+if(userLvl == 0){
+    //imposta valori per la difficoltà 0
+    var bombeMin = 1;
+    var bombeMax = 100;
+}
+else if(userLvl == 1){
+    //imposta valori per la difficoltà 1
+    var bombeMin = 1;
+    var bombeMax = 80;
+}
+else if(userLvl == 2){
+    //imposta valori per la difficoltà 2
+    var bombeMin = 1;
+    var bombeMax = 50;
+}
+
 // 1. Generare i 16 numeri casuali che andranno a definire le "bombe"
 var bombe = [];
-var bombeMin = 1;
-var bombeMax = 100;
 var numeroBombe = 16;
 while (bombe.length < numeroBombe){
     // genera un numero random
@@ -29,7 +45,7 @@ var saveUserNum = [];
 var endGame = false;
 
 while(saveUserNum.length < bombeMax - numeroBombe && !endGame){
-    var numUser = parseInt(prompt('Inserisci un numero tra 1 e 100'));
+    var numUser = parseInt(prompt('Inserisci un numero tra ' + bombeMin + ' e ' + bombeMax));
     if (!bombe.includes(numUser) && !saveUserNum.includes(numUser) && !isNaN(numUser) && checkRange(bombeMin,bombeMax,numUser)){
         //il numero è accettato dal sistema quindi lo salvo nell'array
         saveUserNum.push(numUser);
@@ -51,6 +67,10 @@ while(saveUserNum.length < bombeMax - numeroBombe && !endGame){
         alert('Hai perso');
         endGame = true;
     }
+}
+
+if(!endGame){
+    console.log('Hai vinto!!!!!!');
 }
 console.log(saveUserNum);
 
