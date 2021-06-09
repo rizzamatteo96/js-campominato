@@ -120,6 +120,7 @@ document.getElementById('btn-game').addEventListener('click', function(){
             document.getElementById('main-container').className = 'd-none';
             document.getElementById('esplosione').className = 'd-block text-center';
             document.getElementById('user-score').innerHTML += saveUserNum.length + ' numeri prima di morire';
+            document.getElementById('percentage').innerHTML += numPercentage(bombeMax, saveUserNum.length) + '%';
             alert('Hai perso');
         }
     }
