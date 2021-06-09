@@ -42,27 +42,27 @@ document.getElementById('btn-lvl').addEventListener('click', function(){
         }
         // console.log('min' + bombeMin);
         // console.log('max' + bombeMax);
+
+        // 1. Generare i 16 numeri casuali che andranno a definire le "bombe"
+        while (bombe.length < numeroBombe){
+            // genera un numero random
+            var numGen = rndNumber(bombeMin,bombeMax);
+            if(!bombe.includes(numGen)){
+                //controllo che il numero generato non sia già presente e lo inserisco nell'array di riferimento
+                bombe.push(numGen);
+            }
+        }
+        // console.log(bombe);
+    
+        // faccio scomparire la sezione di selezione del livello e faccio apparire quella di gioco
+        document.getElementById('game-lvl').className = 'd-none';
+        document.getElementById('game').className = 'text-center d-block pt-1';
+
     } 
     else{
         alert('Attenzione!!!! Non hai inserito un livello coerente');
         document.getElementById('level').value = '';
     }
-
-    // 1. Generare i 16 numeri casuali che andranno a definire le "bombe"
-    while (bombe.length < numeroBombe){
-        // genera un numero random
-        var numGen = rndNumber(bombeMin,bombeMax);
-        if(!bombe.includes(numGen)){
-            //controllo che il numero generato non sia già presente e lo inserisco nell'array di riferimento
-            bombe.push(numGen);
-        }
-    }
-    // console.log(bombe);
-
-    // faccio scomparire la sezione di selezione del livello e faccio apparire quella di gioco
-    document.getElementById('game-lvl').className = 'd-none';
-    document.getElementById('game').className = 'text-center d-block pt-1';
-
 });
 
 
