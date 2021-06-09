@@ -10,21 +10,26 @@
 
 //BONUS Impostare livello di difficoltà del gioco
 var userLvl = parseInt(prompt('Inserisci la difficoltà: 0 / 1 / 2'));
-if(userLvl == 0){
-    //imposta valori per la difficoltà 0
-    var bombeMin = 1;
-    var bombeMax = 100;
+switch (userLvl){
+    case 0:
+        //imposta valori per la difficoltà 0
+        var bombeMin = 1;
+        var bombeMax = 100;
+        break;
+    case 1:
+        //imposta valori per la difficoltà 1
+        var bombeMin = 1;
+        var bombeMax = 80;
+        break;
+    case 2:
+        //imposta valori per la difficoltà 2
+        var bombeMin = 1;
+        var bombeMax = 50;
+        break;
 }
-else if(userLvl == 1){
-    //imposta valori per la difficoltà 1
-    var bombeMin = 1;
-    var bombeMax = 80;
-}
-else if(userLvl == 2){
-    //imposta valori per la difficoltà 2
-    var bombeMin = 1;
-    var bombeMax = 50;
-}
+
+
+
 
 // 1. Generare i 16 numeri casuali che andranno a definire le "bombe"
 var bombe = [];
