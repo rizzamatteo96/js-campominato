@@ -8,8 +8,16 @@
 //TODO BONUS: (da fare solo se funziona tutto il resto) all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali: con difficoltà 0 => tra 1 e 100 con difficoltà 1 => tra 1 e 80 con difficoltà 2 => tra 1 e 50
 
 
-//BONUS Impostare livello di difficoltà del gioco
+//*BONUS Impostare livello di difficoltà del gioco
 var userLvl = parseInt(prompt('Inserisci la difficoltà: 0 / 1 / 2'));
+
+
+// Check se il numero inserito può essere accettato o meno dal sistema
+while(!checkRange(0,2,userLvl)){
+    alert('Attenzione!!!! Il dato inserito non è corretto.');
+    userLvl = parseInt(prompt('Inserisci la difficoltà. Il valore inserito DEVE essere uno dei seguenti: 0 / 1 / 2'));
+}
+
 switch (userLvl){
     case 0:
         //imposta valori per la difficoltà 0
@@ -27,8 +35,6 @@ switch (userLvl){
         var bombeMax = 50;
         break;
 }
-
-
 
 
 // 1. Generare i 16 numeri casuali che andranno a definire le "bombe"
