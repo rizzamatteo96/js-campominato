@@ -29,10 +29,17 @@
     margin-bottom: 3rem;
 }
 
+.pt-1{
+    padding-top: 1rem;
+}
+
 .mt-3{
     margin-top: 3rem;
 }
 
+body{
+    color: white;
+}
 
 #main-container,
 #esplosione{
@@ -54,14 +61,16 @@
 .container{
     width: 80%;
     margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    padding-bottom: 20rem;
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 30px;
 }
 
+#esplosione img{
+    width: 50%;
+}
 
-
-
-/* DEBUG */
-.debug .container{
-    height: 500px;
+#user-score{
+    padding: 5px;
+    background-color: darkred;
 }

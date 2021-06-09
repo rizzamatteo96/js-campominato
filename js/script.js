@@ -42,7 +42,6 @@ document.getElementById('btn-lvl').addEventListener('click', function(){
         }
         console.log('min' + bombeMin);
         console.log('max' + bombeMax);
-        console.log('step' + step);
     } 
     else{
         alert('Attenzione!!!! Non hai inserito un livello coerente');
@@ -62,6 +61,8 @@ document.getElementById('btn-lvl').addEventListener('click', function(){
 
     // faccio scomparire la sezione di selezione del livello e faccio apparire quella di gioco
     document.getElementById('game-lvl').className = 'd-none';
+    document.getElementById('game').className = 'text-center d-block pt-1';
+
 });
 
 
@@ -69,9 +70,11 @@ document.getElementById('btn-lvl').addEventListener('click', function(){
 document.getElementById('btn-game').addEventListener('click', function(){
     if(saveUserNum.length < bombeMax - numeroBombe && !endGame){
         var numUser = parseInt(document.getElementById('user-number').value);
+        document.getElementById('user-number').value = '';
         if (!bombe.includes(numUser) && !saveUserNum.includes(numUser) && !isNaN(numUser) && checkRange(bombeMin,bombeMax,numUser)){
             //il numero è accettato dal sistema quindi lo salvo nell'array
             saveUserNum.push(numUser);
+            document.getElementById('added-numbers').innerHTML = saveUserNum;
         }
         else if(isNaN(numUser)){
             //il dato inserito dall'utente non è un numero
@@ -87,8 +90,11 @@ document.getElementById('btn-game').addEventListener('click', function(){
         }
         else {
             //l'utente ha "preso una bomba" e quindi ha perso
-            alert('Hai perso');
             endGame = true;
+            document.getElementById('main-container').className = 'd-none';
+            document.getElementById('esplosione').className = 'd-block text-center';
+            document.getElementById('user-score').innerHTML += saveUserNum.length + ' numeri prima di morire';
+            alert('Hai perso');
         }
     }
     else {
@@ -96,7 +102,7 @@ document.getElementById('btn-game').addEventListener('click', function(){
     }
 });
 
-
+/*
 while(saveUserNum.length < bombeMax - numeroBombe && !endGame){
     var numUser = parseInt(prompt('Inserisci un numero tra ' + bombeMin + ' e ' + bombeMax));
     if (!bombe.includes(numUser) && !saveUserNum.includes(numUser) && !isNaN(numUser) && checkRange(bombeMin,bombeMax,numUser)){
@@ -128,7 +134,7 @@ if(!endGame){
 console.log(saveUserNum);
 
 // 3. Comunicare quanti numeri sono stati scritti dall'utente prima di perdere
-console.log('l\'utente è riuscito ad inserire ' + saveUserNum.length + ' numeri. La percentuale di vincita è pari a ' + numPercentage(bombeMax - numeroBombe,saveUserNum.length) + '%');
+console.log('l\'utente è riuscito ad inserire ' + saveUserNum.length + ' numeri. La percentuale di vincita è pari a ' + numPercentage(bombeMax - numeroBombe,saveUserNum.length) + '%');*/
 
 
 
