@@ -83,8 +83,10 @@ body{
 }
 
 .score-container{
-    width: 80%;
+    width: 50%;
     margin: 0 auto;
     padding: 5px;
     background-color: darkred;
+    border-radius: 50px;
+    box-shadow: 0 0 10px black;
 }
