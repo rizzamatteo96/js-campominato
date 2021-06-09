@@ -11,7 +11,6 @@
 //*BONUS Impostare livello di difficoltà del gioco
 var userLvl = parseInt(prompt('Inserisci la difficoltà: 0 / 1 / 2'));
 
-
 // Check se il numero inserito può essere accettato o meno dal sistema
 while(!checkRange(0,2,userLvl)){
     alert('Attenzione!!!! Il dato inserito non è corretto.');

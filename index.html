@@ -7,9 +7,41 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Campo minato</title>
 </head>
-<body>
+<body class="debug">
     
+    <!-- inizio contenitore principale -->
+    <div id="main-container">
+        <!-- inizio container interno -->
+        <div class="container">
 
+            <!-- inizio sezione per la selezione del livello di gioco -->
+            <section id="game-lvl" class="text-center">
+                <h2 class="uppercase">Seleziona il livello desiderato</h2>
+                <label for="level" class="d-block mt-3 mb-1 uppercase">Inserire il livello desiderato</label>
+                <input type="number" min="0" max="2" id="level">
+                <button id="btn-lvl" class="uppercase">Seleziona livello</button>
+            </section>
+            <!-- fine sezione per la selezione del livello di gioco -->
+
+            <!-- inizio sezione di gioco -->
+            <section>
+
+            </section>
+            <!-- fine sezione di gioco -->
+
+
+
+
+
+        </div>
+        <!-- fine container interno -->
+
+    </div>
+    <!-- fine contenitore principale -->
+
+    <!-- inizio contenitore per esplosione -->
+    <div id="esplosione" class="d-none"></div>
+    <!-- fine contenitore per esplosione -->
 
 
     <!-- collegamento JS -->
