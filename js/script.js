@@ -16,8 +16,18 @@ var numeroBombe = 16;
 var saveUserNum = [];
 var endGame = false;
 
+// reset level field in html
 document.getElementById('level').value = '';
+
 //*BONUS Impostare livello di difficoltà del gioco
+var input = document.getElementById('level');
+input.addEventListener("keyup", function(event) {
+    if (event.key === 'Enter') {
+        document.getElementById('btn-lvl').click();
+    }
+});
+
+
 document.getElementById('btn-lvl').addEventListener('click', function(){
     var userLvl = parseInt(document.getElementById('level').value);
     // console.log(userLvl);
@@ -67,6 +77,13 @@ document.getElementById('btn-lvl').addEventListener('click', function(){
 
 
 // Dopo aver inserito un numero e aver premuto il tasto, il programma controlla le varie condizioni del caso per fare in modo di dare un allarme, inserire il numero o bloccare il gioco
+var input = document.getElementById('user-number');
+input.addEventListener("keyup", function(event) {
+    if (event.key === 'Enter') {
+        document.getElementById('btn-game').click();
+    }
+});
+
 document.getElementById('btn-game').addEventListener('click', function(){
     if(saveUserNum.length < bombeMax - numeroBombe && !endGame){
         var numUser = parseInt(document.getElementById('user-number').value);
