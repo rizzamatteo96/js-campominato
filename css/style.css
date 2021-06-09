@@ -58,6 +58,14 @@ body{
     background-color: orange;
 }
 
+#win{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/win.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
 .container{
     width: 80%;
     margin: 0 auto;

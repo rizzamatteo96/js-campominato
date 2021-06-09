@@ -16,7 +16,7 @@ var numeroBombe = 16;
 var saveUserNum = [];
 var endGame = false;
 
-
+document.getElementById('level').value = '';
 //*BONUS Impostare livello di difficoltà del gioco
 document.getElementById('btn-lvl').addEventListener('click', function(){
     var userLvl = parseInt(document.getElementById('level').value);
@@ -75,6 +75,13 @@ document.getElementById('btn-game').addEventListener('click', function(){
             //il numero è accettato dal sistema quindi lo salvo nell'array
             saveUserNum.push(numUser);
             document.getElementById('added-numbers').innerHTML = saveUserNum;
+            
+            // controllo se l'utente ha vinto
+            if(saveUserNum.length == bombeMax - numeroBombe){
+                document.getElementById('main-container').className = 'd-none';
+                document.getElementById('esplosione').className = 'd-none';
+                document.getElementById('win').className = 'd-block';
+            }
         }
         else if(isNaN(numUser)){
             //il dato inserito dall'utente non è un numero
@@ -96,9 +103,6 @@ document.getElementById('btn-game').addEventListener('click', function(){
             document.getElementById('user-score').innerHTML += saveUserNum.length + ' numeri prima di morire';
             alert('Hai perso');
         }
-    }
-    else {
-        // l'utente ha vinto
     }
 });
 
